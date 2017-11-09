@@ -1,0 +1,31 @@
+name: http_browser_benchmark
+environment:
+  sdk: ">=1.24.0 <2.0.0"
+
+dependencies:
+  http:
+  js: ^0.6.1
+
+dev_dependencies:
+  jsbench: ^0.2.1
+
+# Based on versions checked in to google3.
+dependency_overrides:
+  async:        2.0.1
+  charcode:     1.1.0
+  collection:   1.14.3
+  http:         0.11.3+14
+  http_parser:  #3.1.2-dev
+    git:
+      url:      https://github.com/dart-lang/http_parser.git
+      ref:      4aa97fc8a0c195d33e6f25734ffb6e0c73f43d25
+  path:         1.4.2
+  source_span:  1.4.0
+  typed_data:   1.1.4
+
+transformers:
+  - $dart2js:
+      commandLineOptions:
+          - --dump-info
+          - --trust-type-annotations
+          - --trust-primitives
